@@ -15,3 +15,10 @@ script:
 before_install:
 - openssl aes-256-cbc -K $encrypted_905d4882b60e_key -iv $encrypted_905d4882b60e_iv
   -in tci.jks.enc -out tci.jks -d
+deploy:
+  provider: releases
+  api_key:
+    secure: TOWlzGjOe4TvcZb8uO/gDzFvQQL3H6KheUr5aukBn9XeWvIG0DAWJ1blWsyvC5h+pqYe6iUkBk4MPgTwjAEF9p93niz8MosrGUwYuAVRnfOUoajrNf4Fb9XkRe7qW1aKw1jIDSIakjfh7CokUa3rzslRFaLK2bCyOj9ZDeltWwmOZF1LmBgNZ2ZTg4Vbr3H91YzraQRu3Ov6B1l0698mp1WpimwIEj44fXFU2htiCm9okNCJkL0qEglG5+bz34V04qHbfcxpVPRdBKgQlEFdkVpD1vZFwHZm95FrY360YCo1j1Jk5k7ZOqqFXX2xwjxD3DsN/gqbaJ+TEa2OqIaz150TQO11YRU4cWDWWsFMt98lZ467DPpQE/j7oY7c+32YF0XW++AO8Cij6ypxswvozhX1zN6mwv5DFFeXGC2WaBDaxus2eDI25ilyD5HKQ5EVy/z+We5VPtFxbDNu9v4sFJwvHkzGxqf5KdHH+7Jbin7nGVj21PAuSYi0XnEs8zBfYYn99GiStIOaJuF7/cB76GsvDjT7kq3IyoiJQApXVd5SeQX3y1otpATDSfmB1PWv6TmtSKb8crkB6MgojvH+leA+9qY8HR2yCp8zK2dsQCzMfUxm0mwcJHJxraxpUqH0JT3oti/MqsNHoOa1jn4+Rcoy/2kFazlBmLjNGbSlsbc=
+  file: app/build/outputs/apk/app-release.apk
+  on:
+    repo: chm006/TravisCITest
