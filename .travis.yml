@@ -11,7 +11,7 @@ android:
   - sys-img-armeabi-v7a-android-19
   - sys-img-x86-android-17
 script:
-- "./gradlew assembleRelease"
+- ./gradlew :app:assembleRelease
 before_install:
 - gem install fir-cli
 - openssl aes-256-cbc -K $encrypted_905d4882b60e_key -iv $encrypted_905d4882b60e_iv
@@ -25,3 +25,5 @@ deploy:
     repo: chm006/TravisCITest
     tags: true
     all_branches: true
+after_deploy:
+- fir p app/build/outputs/apk/app-release.apk -T $FIR_TOKEN -c "`git cat-file tag $TRAVIS_TAG`"
